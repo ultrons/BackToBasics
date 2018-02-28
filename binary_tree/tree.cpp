@@ -10,8 +10,53 @@ void preOrderTraversal(Node * N) {
 
 }
 
-void postOrderTraversal(Node * N) {
 
+// Plan of attack:
+// Start from the root
+// Follow the left child along until none left (add them to a stack along the way)
+// look at the right child of this node
+// If there is a right child add to the stack and start over
+// If there is no right child it's a leaf
+// print the leaf, pop the leaf
+// while true
+// Check if there was right child of the parent
+// If there were no right child then print the parent and pop the parent
+// If there was a right child add the right child to the stack and break
+// If the stack get's empty (break anyway
+void postOrderTraversal(Node * N) {
+  std::stack<Node *> NodeStack;
+
+  //stack top
+  Node * top;
+
+  NodeStack.push(N);
+  top=NodeStack.top();
+
+  while (!NodeStack.empty()) {
+    while(top->getLeftChild() != NULL) {
+      NodeStack.push(top->getLeftChild());
+      top = NodeStack.top();
+    }
+    if (top->getRightChild() != NULL) {
+      NodeStack.push(top->getRightChild());
+      top = NodeStack.top();
+      continue;
+    }
+    while (true) {
+      std::cout << top->getKey() << std::endl;
+      NodeStack.pop();
+
+      if (NodeStack.empty()) break;
+
+      if (NodeStack.top()->getRightChild() != NULL && NodeStack.top()->getRightChild() != top ) {
+        NodeStack.push(NodeStack.top()->getRightChild());
+        top=NodeStack.top();
+        break;
+      } else {
+        top=NodeStack.top();
+      }
+    }
+  }
 }
 
 // Plan of attack:

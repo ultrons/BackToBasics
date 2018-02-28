@@ -22,8 +22,10 @@ int main() {
 
 
   printByLevel(&N1);
-  std::cout << "######################" << std::endl;
+  std::cout << "###### In Order Traversal ################" << std::endl;
   inOrderTraversal(&N1);
+  std::cout << "####### Post Order Traversal ###############" << std::endl;
+  postOrderTraversal(&N1);
   std::cout << "######################" << std::endl;
 
   Node R(4);
@@ -36,12 +38,16 @@ int main() {
   R1.setRightChild(&R3);
   R1.setLeftChild(&R2);
   R2.setRightChild(&R4);
-  inOrderTraversal(&R);
+//inOrderTraversal(&R);
 
 
+  std::cout << "####### Post Order Traversal ###############" << std::endl;
+  postOrderTraversal(&N1);
+  std::cout << "######################" << std::endl;
 
 
 return 0;
 
 
 }
+
