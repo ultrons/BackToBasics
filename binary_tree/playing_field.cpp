@@ -40,6 +40,11 @@ int main() {
   R2.setRightChild(&R4);
 //inOrderTraversal(&R);
 
+  std::cout << "######### PreOrder(N1) ############" << std::endl;
+  preOrderTraversal(&R);
+  std::cout << "######## PreOrder(R) ##############" << std::endl;
+  preOrderTraversal(&N1);
+
 
   std::cout << "####### Post Order Traversal ###############" << std::endl;
   postOrderTraversal(&N1);
