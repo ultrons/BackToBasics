@@ -6,7 +6,30 @@
 
 
 void preOrderTraversal(Node * N) {
+  std::stack<Node *> NodeStack;
+  Node * top;
+  Node * p;
 
+  NodeStack.push(N);
+  std::cout << NodeStack.top()->getKey() << std::endl;
+  while(!NodeStack.empty()) {
+    while (NodeStack.top()->getLeftChild() != NULL) {
+      NodeStack.push(NodeStack.top()->getLeftChild());
+      std::cout << NodeStack.top()->getKey() << std::endl;
+    }
+    if (NodeStack.empty()) break;
+    top = NodeStack.top();
+    NodeStack.pop();
+    while (top->getRightChild() == NULL) {
+      if (NodeStack.empty()) break;
+      top = NodeStack.top();
+      NodeStack.pop();
+    }
+    if (top->getRightChild() != NULL) {
+      NodeStack.push(top->getRightChild());
+      std::cout << NodeStack.top()->getKey() << std::endl;
+    }
+  }
 
 }
 
@@ -25,7 +48,6 @@ void preOrderTraversal(Node * N) {
 // If the stack get's empty (break anyway
 void postOrderTraversal(Node * N) {
   std::stack<Node *> NodeStack;
-
   //stack top
   Node * top;
 
