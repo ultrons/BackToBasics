@@ -1,0 +1,23 @@
+Some cool things you can do with gdb:
+
+
+Two ways to launch:
+
+gdb <path to the executable>
+
+gdb -tui <path to the executable>
+: TUI stands for terminal user interface
+
+
+Once in, You can type:
+
+layout split  ->  to see the code as well as assembly code view.
+b <name of a function>    -> insert breakpoint at a function
+b <file name>:line number -> create breakpoint at the given line number in a given file.
+n                         -> execute 1 line
+step                      -> step into the function if control is at the line with a function call.
+                            (what happens if there are more than one function call in a line?
+                             No idea :)
+run                       -> Run until the next break point
+c                         -> Should also do the same (There may be some difference wrt run; don't know what it is.)
+
